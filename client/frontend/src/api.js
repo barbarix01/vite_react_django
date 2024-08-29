@@ -1,8 +1,10 @@
 import axios from "axios"
 import { ACCESS_TOKEN } from "./constants"
 
+const apiUrl = "/choreo-apis/reactdjangoapp/backend/v1";
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL //imports env variables from env file
+    baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL: apiUrl, //imports env variables from env file
 })
 
 api.interceptors.request.use(
